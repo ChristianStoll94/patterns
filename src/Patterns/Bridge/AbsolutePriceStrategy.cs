@@ -2,19 +2,19 @@
 
 namespace Patterns.Bridge
 {
-    public class AbsolutPriceStrategy : IValueHandler
+    public class AbsolutePriceStrategy : IPriceStrategy
     {
         private readonly decimal _absoluteDiscount;
-        public AbsolutPriceStrategy(decimal absoluteDiscount)
+        public AbsolutePriceStrategy(decimal absoluteDiscount)
         {
             _absoluteDiscount = absoluteDiscount;
         }
-        public decimal getValue(decimal value)
+        public decimal GetValue(decimal value)
         {
             return value - _absoluteDiscount;
         }
 
-        public decimal getOrginalValue(decimal value)
+        public decimal GetOriginalValue(decimal value)
         {
             return value;
         }

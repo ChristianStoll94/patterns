@@ -2,7 +2,7 @@
 
 namespace Patterns.Bridge
 {
-    public class PercentPriceStrategy : IValueHandler
+    public class PercentPriceStrategy : IPriceStrategy
     {
         private readonly decimal _percentageDiscount;
 
@@ -10,12 +10,12 @@ namespace Patterns.Bridge
         {
             _percentageDiscount = percentageDiscount;
         }
-        public decimal getValue(decimal value)
+        public decimal GetValue(decimal value)
         {
             return value - (value / 100m * _percentageDiscount);
         }
 
-        public decimal getOrginalValue(decimal value)
+        public decimal GetOriginalValue(decimal value)
         {
             return value;
         }

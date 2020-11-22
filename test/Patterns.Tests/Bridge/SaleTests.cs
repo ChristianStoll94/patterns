@@ -14,12 +14,12 @@ namespace Patterns.Tests.Bridge
         {
             // Arrange
             NormalSale normalSale = new NormalSale();
-            PercentPriceStrategy percentpricestrategy = new PercentPriceStrategy(20);
-            decimal orginalPrice = 100;
+            PercentPriceStrategy percentPriceStrategy = new PercentPriceStrategy(20);
+            decimal price = 100;
 
             // Act
-            normalSale.setStrategy(percentpricestrategy);
-            var result = normalSale.getTotal(100);
+            normalSale.SetStrategy(percentPriceStrategy);
+            var result = normalSale.GetTotal(100);
 
             // Assert
             result.Should().Be(80);
@@ -30,12 +30,12 @@ namespace Patterns.Tests.Bridge
         {
             // Arrange
             WeekendSale weekendSale = new WeekendSale();
-            PercentPriceStrategy percentpricestrategy = new PercentPriceStrategy(20);
-            decimal orginalPrice = 100;
+            PercentPriceStrategy percentPriceStrategy = new PercentPriceStrategy(20);
+            decimal price = 100;
 
             // Act
-            weekendSale.setStrategy(percentpricestrategy);
-            var result = weekendSale.getTotal(orginalPrice);
+            weekendSale.SetStrategy(percentPriceStrategy);
+            var result = weekendSale.GetTotal(price);
 
             // Assert
             result.Should().Be(64);
@@ -46,12 +46,12 @@ namespace Patterns.Tests.Bridge
         {
             // Arrange
             NormalSale normalSale = new NormalSale();
-            AbsolutPriceStrategy absolutpricestrategy = new AbsolutPriceStrategy(30);
-            decimal orginalPrice = 100;
+            AbsolutePriceStrategy absolutePriceStrategy = new AbsolutePriceStrategy(30);
+            decimal price = 100;
 
             // Act
-            normalSale.setStrategy(absolutpricestrategy);
-            var result = normalSale.getTotal(orginalPrice);
+            normalSale.SetStrategy(absolutePriceStrategy);
+            var result = normalSale.GetTotal(price);
 
             // Assert
             result.Should().Be(70);
@@ -62,12 +62,12 @@ namespace Patterns.Tests.Bridge
         {
             // Arrange
             WeekendSale weekendSale = new WeekendSale();
-            AbsolutPriceStrategy absolutpricestrategy = new AbsolutPriceStrategy(30);
-            decimal orginalPrice = 100;
+            AbsolutePriceStrategy absolutePriceStrategy = new AbsolutePriceStrategy(30);
+            decimal price = 100;
 
             // Act
-            weekendSale.setStrategy(absolutpricestrategy);
-            var result = weekendSale.getTotal(orginalPrice);
+            weekendSale.SetStrategy(absolutePriceStrategy);
+            var result = weekendSale.GetTotal(price);
 
             // Assert
             result.Should().Be(40);

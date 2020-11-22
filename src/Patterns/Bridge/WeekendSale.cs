@@ -2,16 +2,16 @@
 
 namespace Patterns.Bridge
 {
-    public class WeekendSale : ICustomer
+    public class WeekendSale : AbstractSale
     {
-        public override decimal getTotal(decimal value)
+        public override decimal GetTotal(decimal value)
         {
-            return pc.getValue(pc.getValue(value));
+            return _priceStrategy.GetValue(_priceStrategy.GetValue(value));
         }
 
-        public override decimal getOrginalValue(decimal value)
+        public override decimal GetOriginalValue(decimal value)
         {
-            return pc.getOrginalValue(value);
+            return _priceStrategy.GetOriginalValue(value);
         }
     }
 }
